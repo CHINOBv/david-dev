@@ -12,17 +12,17 @@ export default function FirstPost({ data }) {
       </Head>
       <h1>First Post</h1>
       <h2>
-        <Link href="/">
+        <Link href="/ssr">
           <a>Back to home</a>
         </Link>
       </h2>
       <h1>title: contacts</h1>
-      <p>{data.properties.firstname.value}</p>
+      <p>{data.properties.firstname?.value}</p>
     </>
   );
 }
 
-export async function getStaticPaths() {
+export async function getServerSidePaths() {
   // Call an external API endpoint to get posts
   const res = await axios(
     "https://api.hubapi.com/contacts/v1/lists/all/contacts/all?hapikey=dd51b00b-2b30-45de-bbc3-4cb63ea5fe56"
@@ -37,7 +37,7 @@ export async function getStaticPaths() {
   return { paths, fallback: false };
 }
 
-export const getStaticProps = async ({ params }) => {
+export const getServerSideProps = async ({ params }) => {
   // Fetch data from external API
   const res = await axios(
     `https://api.hubapi.com/contacts/v1/contact/vid/${params.id}/profile?hapikey=dd51b00b-2b30-45de-bbc3-4cb63ea5fe56`

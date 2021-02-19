@@ -23,7 +23,7 @@ const ssr = ({ data }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   // Fetch data from external API
   const res = await axios(
     "https://api.hubapi.com/contacts/v1/lists/all/contacts/all?hapikey=dd51b00b-2b30-45de-bbc3-4cb63ea5fe56"
