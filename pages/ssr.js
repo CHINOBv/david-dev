@@ -9,9 +9,13 @@ const ssr = ({ data }) => {
       <h1>title: contacts</h1>
 
       {data.map((contact) => (
-        <Link href={`/posts/${contact.vid}`} key={contact.vid}>
-          {contact.properties.lastmodifieddate.value}
-        </Link>
+        <>
+          <p>Date: </p>
+          <Link href={`/posts/${contact.vid}`} key={contact.vid}>
+            {contact.properties.lastmodifieddate.value}
+          </Link>
+          <br />
+        </>
       ))}
       <p>Count: {count}</p>
       <button onClick={() => setCount((pv) => pv + 1)}>Count ++</button>

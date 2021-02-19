@@ -1,13 +1,12 @@
 import Head from "next/head";
 import Link from "next/link";
-import Layout from "../../components/layout";
 
 import axios from "axios";
 
 export default function FirstPost({ data }) {
   console.log(data);
   return (
-    <Layout>
+    <>
       <Head>
         <title>First Post</title>
       </Head>
@@ -19,7 +18,7 @@ export default function FirstPost({ data }) {
       </h2>
       <h1>title: contacts</h1>
       <p>{data.properties.firstname.value}</p>
-    </Layout>
+    </>
   );
 }
 
